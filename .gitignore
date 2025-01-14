@@ -8,8 +8,8 @@ build-fprime-*
 *.template.hpp
 
 # Misc
-/venv/
-/fprime-venv/
+venv/
+fprime-venv/
 /.idea/
 /.vscode/
 .DS_Store

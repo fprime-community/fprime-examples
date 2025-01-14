@@ -4,7 +4,7 @@
 // \brief  cpp file for Worker component implementation class
 // ======================================================================
 #include <Os/Task.hpp>
-#include "Components/ManagerWorker/Worker/Worker.hpp"
+#include "ManagerWorker/Worker/Worker.hpp"
 
 namespace ManagerWorker {
 

@@ -7,7 +7,7 @@
 #ifndef ManagerWorker_Manager_HPP
 #define ManagerWorker_Manager_HPP
 
-#include "Components/ManagerWorker/Manager/ManagerComponentAc.hpp"
+#include "ManagerWorker/Manager/ManagerComponentAc.hpp"
 
 namespace ManagerWorker {
 

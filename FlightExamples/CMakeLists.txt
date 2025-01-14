@@ -4,7 +4,7 @@
 ####
 
 cmake_minimum_required(VERSION 3.13)
-project(fprime-examples C CXX)
+project(FlightExamples C CXX)
 
 ###
 # F' Core Setup

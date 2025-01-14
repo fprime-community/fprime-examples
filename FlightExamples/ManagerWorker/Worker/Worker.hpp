@@ -6,7 +6,7 @@
 #ifndef ManagerWorker_Worker_HPP
 #define ManagerWorker_Worker_HPP
 #include <atomic>
-#include "Components/ManagerWorker/Worker/WorkerComponentAc.hpp"
+#include "ManagerWorker/Worker/WorkerComponentAc.hpp"
 
 namespace ManagerWorker {
 

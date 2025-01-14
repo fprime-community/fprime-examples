@@ -4,7 +4,7 @@
 // \brief  cpp file for Manager component implementation class
 // ======================================================================
 
-#include "Components/ManagerWorker/Manager/Manager.hpp"
+#include "ManagerWorker/Manager/Manager.hpp"
 
 namespace ManagerWorker {
 
