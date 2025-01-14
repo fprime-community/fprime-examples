@@ -35,12 +35,12 @@ class Manager : public ManagerComponentBase {
     void pingIn_handler(FwIndexType portNum,  //!< The port number
                         U32 key               //!< Value to return to pinger
                         ) override;
-
-    //! Handler implementation for workerDone
+    //! Handler implementation for doneRecv
     //!
     //! Signal from the worker that the work is finished
-    void doneRecv_handler(FwIndexType portNum  //!< The port number
-                            ) override;
+    void doneRecv_handler(FwIndexType portNum,      //!< The port number
+                          const Fw::Completed& completed  //!< Completion status
+                          ) override;
 
   PRIVATE:
     // ----------------------------------------------------------------------

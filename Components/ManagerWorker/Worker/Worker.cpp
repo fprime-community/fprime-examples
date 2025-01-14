@@ -33,7 +33,11 @@ void Worker ::startWork_handler(FwIndexType portNum) {
     }
     // Indicate that the work is done
     if (i == bound) {
-        this->workDone_out(0);
+        this->workDone_out(0, Fw::Completed::COMPLETED);
+    } else if (this->m_cancel) {
+        this->workDone_out(0, Fw::Completed::COMPLETED);
+    } else {
+        this->workDone_out(0, Fw::Completed::FAILED);
     }
 }
 

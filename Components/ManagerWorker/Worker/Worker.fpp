@@ -8,6 +8,6 @@ module ManagerWorker {
         sync input port cancelWork: Fw.Signal
 
         @ Signal the work is done
-        output port workDone: Fw.Signal
+        output port workDone: Fw.CompletionStatus
     }
 }

@@ -15,11 +15,8 @@ module ManagerWorker {
         @ TODO: is this reasonable? to have a cancel out and back
         output port cancelWorker: Fw.Signal
 
-        @ Signal from the worker that the work was canceled
-        async input port cancelRecv: Fw.Signal
-
         @ Signal from the worker that the work is finished
-        async input port doneRecv: Fw.Signal
+        async input port doneRecv: Fw.CompletionStatus
 
         @ Ping input port to show that the manager remains responsive during work
         async input port pingIn: Svc.Ping
@@ -39,7 +36,13 @@ module ManagerWorker {
         @ Event to indicate that the work is done
         event WorkerDone() severity activity high format "Worker completed work"
 
-                @ Event to indicate that the work is done
+        @ Event to indicate that the work was canceled
+        event WorkerCanceled() severity activity high format "Worker canceled work"
+
+        @ Event to indicate that the work failed
+        event WorkerFailed() severity warning high format "Worker failed to do work"
+
+        @ Event to indicate that the work is done
         event WorkerBusy() severity warning high format "Worker is currently busy"
 
         ###############################################################################
