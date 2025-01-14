@@ -1,66 +1,57 @@
 # ManagerWorker::Manager
 
-A manager that leverages a worker component to do work.
+A manager component that leverages a worker component to do work. Designed as an example of the following patterns:
 
-## Usage Examples
-Add usage examples here
+| Pattern                  |
+|--------------------------|
+| Manager / Worker Pattern |
 
-### Diagrams
-Add diagrams here
 
-### Typical Usage
-And the typical usage of the component here
+## Usage
 
-## Class Diagram
-Add a class diagram here
+The manager component is active component and is typically set to a high prority as it does not block when doing work.
 
-## Port Descriptions
-| Name | Description |
-|---|---|
-|---|---|
+```
+instance manager: ManagerWorker.Manager base id 0xABCD \
+    queue size Default.QUEUE_SIZE \
+    stack size Default.STACK_SIZE \
+    priority 80 # Fairly high priority in Linux priority space (0-99)
 
-## Component States
-Add component states in the chart below
-| Name | Description |
-|---|---|
-|---|---|
+```
 
-## Sequence Diagrams
-Add sequence diagrams here
+The manager component should connect to the work component as seen here:
 
-## Parameters
-| Name | Description |
-|---|---|
-|---|---|
-
-## Commands
-| Name | Description |
-|---|---|
-|---|---|
-
-## Events
-| Name | Description |
-|---|---|
-|---|---|
-
-## Telemetry
-| Name | Description |
-|---|---|
-|---|---|
-
-## Unit Tests
-Add unit test descriptions in the chart below
-| Name | Description | Output | Coverage |
-|---|---|---|---|
-|---|---|---|---|
+```
+connections MannagerWorker {
+    manager.startWork -> worker.startWork
+    manager.cancelWork -> worker.cancelWork
+    worker.donceWork -> manager.doneRecv
+}
+```
 
 ## Requirements
-Add requirements in the chart below
-| Name | Description | Validation |
-|---|---|---|
-|---|---|---|
 
-## Change Log
-| Date | Description |
-|---|---|
-|---| Initial Draft |
+| Name                       | Description                                                                                     | Validation |
+|----------------------------|-------------------------------------------------------------------------------------------------|------------|
+| MANAGER-WORKER-MANAGER-001 | The manager shall dispatch work using the `startWork` port in response to a `START` command.    | Unit-Test  |
+| MANAGER-WORKER-MANAGER-002 | The manager shall stop active work using the `cancelWork` port in response to a `STOP` command. | Unit-Test  |
+| MANAGER-WORKER-MANAGER-003 | The manager shall emit an event when `START` is received and work is in-progress.               | Unit-Test  |
+| MANAGER-WORKER-MANAGER-004 | The manager shall emit an event reporting status when work is finished indicated by `doneRecv`. | Unit-Test  |
+| MANAGER-WORKER-MANAGER-005 | The manager shall remain responsive while work is being performed.                              | Unit-Test  |
+
+
+### Timing Diagram
+
+The manager component has the following timing diagram.
+
+```mermaid
+sequenceDiagram
+    Manager-)Worker: startWorker [Starts Work]
+    Worker-->>Manager: 
+    activate Worker
+    loop Working
+        Worker->>Worker: 
+    end
+    Worker-)Manager: doneRecv [Work Finished (Callback)]
+    deactivate Worker
+```

@@ -12,7 +12,7 @@ module ManagerWorker {
         output port startWorker: Fw.Signal
 
         @ Signal to cancel the worker
-        @ TODO: is this reasonable?
+        @ TODO: is this reasonable? to have a cancel out and back
         output port cancelWorker: Fw.Signal
 
         @ Signal from the worker that the work was canceled
