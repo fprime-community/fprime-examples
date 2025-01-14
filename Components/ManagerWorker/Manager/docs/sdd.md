@@ -25,7 +25,7 @@ The manager component should connect to the work component as seen here:
 connections MannagerWorker {
     manager.startWork -> worker.startWork
     manager.cancelWork -> worker.cancelWork
-    worker.donceWork -> manager.doneRecv
+    worker.doneWork -> manager.doneRecv
 }
 ```
 
