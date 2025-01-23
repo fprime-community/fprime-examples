@@ -25,7 +25,7 @@ void Worker ::cancelWork_handler(FwIndexType portNum) {
 }
 
 void Worker ::startWork_handler(FwIndexType portNum) {
-    FwSizeType bound = FW_MIN(std::numeric_limits<FwSizeType>::max(), 1000);
+    FwSizeType bound = FW_MIN(std::numeric_limits<FwSizeType>::max(), 5000);
     FwSizeType i = 0;
     this->m_cancel = false;
     while (not this->m_cancel and i < bound) {
