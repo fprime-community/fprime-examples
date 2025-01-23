@@ -1,56 +1,33 @@
 # Subtopology `ManagerWorkerSubtopology`
 
-A subtopology showing the manager/worker pattern
-
-> Utilizes the [F Prime Subtopology autocoder](https://github.com/mosa11aei/fprime-subtopology-tool).
-
-## Related Diagrams
-Add any related diagrams here
+A subtopology showing the manager/worker pattern.  This subtopology instantiates a manager and worker components to show how these component are hooked-up, and allow integration tests to be written against those components.
 
 ## Requirements
-Add requirements in the chart below
-| Name | Description | Validation |
-|---|---|---|
-|---|---|---|
+
+| Name                           | Description                                                                          | Validation       |
+|--------------------------------|--------------------------------------------------------------------------------------|------------------|
+| MANAGER-WORKER-SUBTOPOLOGY-001 | The subtology shall instantiate and wire-together both a manager and worker component| Integration Test |
+
+## Configuration
+
+Ping entries are defined in `ManagerWorkerTopologyDefs.hpp`.  The `GlobalDefs` namespace must be merged into the instantiating topology's `PingEntries` namespace.  `ManagerWorkerConfig.fpp` must be configured with constants specifying the topology offset, priorities, etc.
 
 ## Instantiation
 
-```
-# TODO: EDIT THIS
+To instantiate this topology, use the following:
 
-topology Inst {}
-@<! is topology ManagerWorkerSubtopology base id 0xAAAA with {
-@<! # fill in as appropriate    
-@<! }
+```
+import ManagerWorker.Subtopology
 ```
 
-## Redefine-able Instances
-| Instance name | Component |
-|---|---|
-|---|---|
+## Running Tests
 
-## Subtopology Interface
+Launch any topology that imports this subtopology and provides a command dispatcher and event logger. Ensure the GDS is connected. Then run the following:
 
-**Input interface instance**: `module.NameOfInputInterface`
-**Output interface instance**: `module.NameOfOutputInterface`
+```
+cd ManagerWorker/Subtopology
+pytest
+```
 
-### Input Interface
-
-Going into `ManagerWorkerSubtopology`.
-
-| Input port | Output port pair | Type      |
-| ---------- | ---------------- | --------- |
-| clock      | clock_in         | Svc.Sched |
-
-### Output Interface
-
-Going out of `ManagerWorkerSubtopology`.
-
-| Output port | Input port pair  | Type      |
-| ----------- | ---------------- | --------- |
-| clock_out   | clock            | Svc.Sched |
-
-## Change Log
-| Date | Description |
-|---|---|
-|---| Initial Draft |
+> ![NOTE]
+> You might need to supply additional arguments to `pytest` for non-standard GDS setups.
