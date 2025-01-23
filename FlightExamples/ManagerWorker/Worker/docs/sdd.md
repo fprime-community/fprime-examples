@@ -31,11 +31,11 @@ connections MannagerWorker {
 
 ## Requirements
 
-| Name                       | Description                                                                          | Validation |
-|----------------------------|--------------------------------------------------------------------------------------|------------|
-| MANAGER-WORKER-WORKER-001 | The worker shall start work in response to the  `startWork` port.                     | Unit-Test  |
-| MANAGER-WORKER-WORKER-002 | The worker shall immediately stop work in response to the `cancelWork` port.          | Unit-Test  |
-| MANAGER-WORKER-WORKER-003 | The worker shall respond with the status of completed work using the `workDone` port. | Unit-Test  |
+| Name                       | Description                                                                          | Validation        |
+|----------------------------|--------------------------------------------------------------------------------------|-------------------|
+| MANAGER-WORKER-WORKER-001 | The worker shall start work in response to the  `startWork` port.                     | Unit-Test         |
+| MANAGER-WORKER-WORKER-002 | The worker shall stop work in response to the `cancelWork` port.                      | Integration Test  |
+| MANAGER-WORKER-WORKER-003 | The worker shall respond with the status of completed work using the `workDone` port. | Unit-Test         |
 
 
 ### Timing Diagram

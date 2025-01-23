@@ -40,7 +40,7 @@ class Worker : public WorkerComponentBase {
     void startWork_handler(FwIndexType portNum  //!< The port number
                            ) override;
 
-    std::atomic<bool> m_cancel;
+    std::atomic<bool> m_cancel; //!< Flag to cancel the work
 };
 
 }  // namespace ManagerWorker
