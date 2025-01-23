@@ -38,6 +38,7 @@ connections MannagerWorker {
 | MANAGER-WORKER-MANAGER-003 | The manager shall emit an event when `START` is received and work is in-progress.               | Unit-Test  |
 | MANAGER-WORKER-MANAGER-004 | The manager shall emit an event reporting status when work is finished indicated by `doneRecv`. | Unit-Test  |
 | MANAGER-WORKER-MANAGER-005 | The manager shall remain responsive while work is being performed.                              | Unit-Test  |
+| MANAGER-WORKER-MANAGER-006 | The manager shall emit an event when the `START` command is issued and the worker is busy.      | Unit-Test  |
 
 
 ### Timing Diagram

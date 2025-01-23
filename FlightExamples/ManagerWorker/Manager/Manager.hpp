@@ -38,7 +38,7 @@ class Manager : public ManagerComponentBase {
     //! Handler implementation for doneRecv
     //!
     //! Signal from the worker that the work is finished
-    void doneRecv_handler(FwIndexType portNum,      //!< The port number
+    void doneRecv_handler(FwIndexType portNum,            //!< The port number
                           const Fw::Completed& completed  //!< Completion status
                           ) override;
 
