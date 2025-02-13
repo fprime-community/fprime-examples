@@ -8,9 +8,12 @@ build-fprime-*
 *.template.hpp
 
 # Misc
-/venv/
-/fprime-venv/
 /.idea/
 /.vscode/
 .DS_Store
 *.gcov
+
+# Python and Pytest
+venv/
+fprime-venv/
+__pycache__/
