@@ -9,13 +9,13 @@ A background worker component that performs work for a manager. Designed as an e
 
 ## Usage
 
-The worker component is active component and is typically set to a low prority as it does background work.
+The worker component is an active component and is typically set to a low priority as it does background work.
 
 ```
 instance worker: ManagerWorker.Worker base id 0xCDEF \
     queue size Default.QUEUE_SIZE \
     stack size Default.STACK_SIZE \
-    priority 20 # Fairly high priority in Linux priority space (0-99)
+    priority 20 # Fairly low priority in Linux priority space (0-99)
 
 ```
 

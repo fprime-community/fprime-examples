@@ -1,6 +1,6 @@
 # Subtopology `ManagerWorkerSubtopology`
 
-A subtopology showing the manager/worker pattern.  This subtopology instantiates a manager and worker components to show how these component are hooked-up, and allow integration tests to be written against those components.
+A subtopology showing the manager/worker pattern.  This subtopology instantiates a manager and worker components to show how these component are hooked-up, and allow integration tests to be written against these components.
 
 ## Requirements
 
