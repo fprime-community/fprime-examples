@@ -1,0 +1,35 @@
+name: FlightExamples UTs
+
+on:
+  push:
+    branches: [ devel, release/** ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ devel, release/** ]
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - '.github/actions/spelling/**'
+      - '.github/ISSUE_TEMPLATE/**'
+
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      name: "Checkout Examples repo"
+      with:
+        submodules: false
+    - name: "Overlay nasa/fprime@devel"
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+        path: ./FlightExamples/lib/fprime
+    - uses: fprime-community/project-builder@main
+      with:
+        run_unit_tests: true
+        build_location: ./FlightExamples
+        fprime_location: ./FlightExamples/lib/fprime
+        fprime_version: devel
