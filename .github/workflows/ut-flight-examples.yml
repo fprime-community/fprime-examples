@@ -32,4 +32,4 @@ jobs:
         run_unit_tests: true
         build_location: ./FlightExamples
         fprime_location: ./FlightExamples/lib/fprime
-        fprime_version: devel
+        fprime_version: origin/devel
