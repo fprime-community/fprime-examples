@@ -15,7 +15,7 @@ on:
 
 jobs:
   build:
-    name: Build and Test
+    name: ""
     runs-on: ubuntu-latest
     steps:
 
@@ -29,7 +29,8 @@ jobs:
         submodules: true
         path: ./FlightExamples/lib/fprime
 
-    - uses: fprime-community/project-builder@main
+    - name: "Build & UTs"
+      uses: fprime-community/project-builder@main
       with:
         run_unit_tests: true
         build_location: ./FlightExamples
